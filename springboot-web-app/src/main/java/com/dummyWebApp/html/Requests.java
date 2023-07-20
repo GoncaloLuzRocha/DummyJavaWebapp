@@ -12,6 +12,7 @@ It should be noted that there's a typo in the constructor's parameter list, wher
 is used instead of "tripType." This typo should be corrected to ensure smooth functionality 
 of the class in managing travel requests.
 **/
+
 package com.dummyWebApp.html;
 
 import java.text.ParseException;
