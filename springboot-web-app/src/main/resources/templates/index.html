@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="ISO-8859-1"/>
+    <title>Flight Search</title>
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: rgba(11, 43, 131, 0.700);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    #banner {
+      background-image: url("https://th.bing.com/th/id/R.e415043f5af4dc023755e6ca401ea2fe?rik=rWzISXpAA3I6gA&riu=http%3a%2f%2fgetwallpapers.com%2fwallpaper%2ffull%2f0%2f8%2fa%2f265630.jpg&ehk=a3nyh%2bzNro3tGEqhinRpyvNvypKU5vF%2bsF8TCRDZ1iY%3d&risl=&pid=ImgRaw&r=0");
+      background-size: cover;
+      background-repeat: no-repeat;
+      height: 150px;
+      text-align: center;
+      color: white;
+      padding-top: 50px;
+    }
+
+    #banner h1 {
+      color: #ffffff;
+      text-shadow: 2px 2px 4px rgb(0, 0, 0);
+    }
+    
+    #form-container {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      margin: 0 auto;
+      flex-grow: 1;
+      align-items: center;
+    }   
+    
+    #form {
+      font-family: 'Montserrat', sans-serif;
+      width: 500px; /* Reduced the width of the form */
+      margin: 0 auto;
+      padding: 20px;
+      background-color: rgba(11, 43, 131, 0);
+      border-radius: 5px;
+    }
+
+    #form label {
+      font-family: 'Montserrat', sans-serif;
+      display: block;
+      text-align: left;
+      margin-bottom: 10px;
+      color: white;
+    }
+
+    #form input[type="text"],
+    #form input[type="date"],
+    #form select,
+    #form input[type="number"],
+    #form input[type="checkbox"],
+    #form input[type="submit"] {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 5px;
+      border-radius: 3px;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+    }
+
+    #form input[type="submit"] {
+      background-color: rgb(177, 7, 7);
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    
+    #footer {
+      background-color: rgba(11, 43, 131, 0.);
+      text-align: center;
+      padding: 10px;
+      flex-shrink: 0;
+      color: white;
+    }
+
+    #trip-type {
+        display: flex;
+        gap: 20px;
+    }
+
+    #trip-type input[type="radio"] {
+        margin-right: 10px;
+    }
+
+    .flex-container {
+        display: -webkit-flex;
+        display: flex;
+        margin: 0;
+        padding: 0;
+    }
+
+    .flex-child {
+        flex: 1;
+        border: 0;
+        margin: 0;
+        padding: 0;
+    }  
+
+    .flex-child:first-child {
+        margin-right: 20px;
+    }
+
+    .cta-button {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 120px
+        height: 120px;
+        background-color: #0000FF;
+        color: #FFFFFF;
+        font-size: 20px;
+        border: none;
+        border-radius: 120px;
+        cursor: pointer;
+        transition: transform 0.3s;
+    }
+
+    .cta-button:hover{
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+
+    .hidden {
+        display: none;
+    }
+  </style>
+  <script>
+      function revealContent() {
+        var content = document.getElementById("content");
+        var button = document.getElementById("ctaButton");
+
+        content.classList.remove("hidden");
+        button.style.display = "none";
+      }
+  </script>
+</head>
+<body>
+  <button id="ctaButton" class="cta-button" onclick="revealContent()">Start Searching</button>
+  <div id="content" class="hidden">
+    <div id="banner">
+      <h1>Flight comparer using flight aggregators</h1>
+  </div>
+  
+    <div id="form-container">
+    <div id="form">
+      <form action="/submitForm" method="post">
+        <label for="origin">Enter an Origin:</label>
+        <input type="text" id="origin" name="origin" placeholder="Enter origin" required>
+
+        <label for="destination">Enter a Destination:</label>
+        <input type="text" id="destination" name="destination" placeholder="Enter destination" required>
+
+        <div class="flex-container dates">
+          <div class="flex-child departure-date">
+            <label for="departure-date">Departure Date:</label>
+            <input type="date" id="departure-date" name="departure_date"  style="width: 240px;"  required>
+          </div>
+
+          <div class="return-date">
+            <label for="return-date">Return Date:</label>
+            <input type="date" id="return-date" name="return_date" style="width: 240px;" >
+          </div>
+        </div>
+
+        <div class="flex-container travel-class & passengers">
+            <div class="flex-child travel-class">
+                <label for="travel_Class">Choose a Travel Class:</label>
+                <select name="travelClass" id="travel_class">
+                    <option value="ECONOMY">Economy</option>
+                    <option value="PREMIUM_ECONOMY">Premium Economy</option>
+                    <option value="BUSINESS">Business</option>
+                    <option value="FIRST">First</option>
+                </select>
+            </div>
+
+            <div class="flex-child passengers">
+                <label for="passengers">Passengers:</label>
+                <input type="number" id="passengers" name="passengers" >
+            </div>
+        </div>
+
+        <label for="trip-type">Trip Type:</label>
+        <div id="trip-type">
+            <input type="radio" id="round-trip" name="tripType" value="ROUND_TRIP" checked>
+            <label for="round-trip">Two Way</label>
+  
+            <input type="radio" id="one-way" name="tripType" value="ONE_WAY">
+            <label for="one-way">One Way</label>
+        </div>
+
+        <input type="submit" value="Submit">
+      </form>
+      
+    </div>
+  </div>
+  
+    <div id="footer">
+    <p>© 2023 Made by Gonçalo Rocha. All rights reserved.</p>
+  </div>
+  </div>
+</body>
+</html>
