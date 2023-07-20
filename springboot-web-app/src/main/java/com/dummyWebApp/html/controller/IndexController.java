@@ -1,3 +1,45 @@
+/**
+The "IndexController" is a Java class designed to handle HTTP requests 
+and responses in a web application. It is annotated with the "@Controller" 
+annotation, indicating that it acts as a controller component within the 
+Spring Framework. The class contains two methods mapped to specific URLs.
+
+The first method, annotated with "@GetMapping" and mapped to "/", handles the 
+HTTP GET request for the root URL. When a user navigates to the application's 
+homepage, this method returns the view template named "index," which will be 
+rendered and displayed in the user's browser.
+
+The second method, annotated with "@PostMapping" and mapped to "/submitForm," 
+handles the HTTP POST request when a user submits a form on the website. 
+This method takes various form parameters, such as origin, destination, 
+departure date, return date, travel class, number of passengers, and trip type. 
+It then processes these parameters to perform flight searches using two different 
+API services: TripAdvisor and Skyscanner.
+
+Within this method, instances of "TripAdvisorRequest" and "SkyscannerRequest" 
+classes are created to interact with the respective APIs. The method first obtains 
+airport codes for the provided origin and destination using the "getAirportCode" 
+method of "TripAdvisorRequest." It then extracts the day, month, and year from the 
+departure date to prepare for the Skyscanner API query.
+
+The condition is checked for the "tripType" to determine whether the user is searching 
+for one-way or round-trip flights. Accordingly, the "searchOneWayFlights" or 
+"searchRoundTripFlights" method from "TripAdvisorRequest" is invoked to make API 
+requests and retrieve flight data from TripAdvisor.
+
+Similarly, the "oneWaySearch" or "returnFlightSearch" method from "SkyscannerRequest" 
+is used to obtain flight data from the Skyscanner API. The responses from both APIs are 
+then processed to extract relevant flight information.
+
+The flight details obtained from TripAdvisor and Skyscanner are populated into separate 
+lists, "tripFlightList" and "skyFlights," respectively. These lists are then added to 
+the model using "model.addAttribute" to be passed to the "results" view template.
+
+In case of any JSON-related exceptions, such as parsing errors, the method catches and 
+prints the exception. Finally, the method returns the "results" view, where the flight 
+information is displayed to the user.
+**/
+
 package com.dummyWebApp.html.controller;
 
 import com.dummyWebApp.html.Requests;
