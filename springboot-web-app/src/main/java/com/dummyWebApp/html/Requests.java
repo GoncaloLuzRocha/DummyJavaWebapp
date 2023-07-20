@@ -1,3 +1,17 @@
+/**
+The given Java class, named "Requests," is part of the package "com.dummyWebApp.html" 
+and serves as a representation of travel requests. It includes private fields such 
+as "departureDate," "returnDate," "origin," "destination," "passengers," "travelClass," 
+and "tripType." The class features a constructor with parameters to initialize these 
+fields when creating a new object. However, there is a minor error in the constructor's 
+signature as it should be named "Requests" like the class itself. Getter and setter methods 
+are also present, enabling access to and modification of the private fields. Additionally, 
+the class includes a useful method called "dateSplitter," which takes a date string in 
+the "YYYY-MM-DD" format and returns an array containing the individual parts of the date. 
+It should be noted that there's a typo in the constructor's parameter list, where "oneWay" 
+is used instead of "tripType." This typo should be corrected to ensure smooth functionality 
+of the class in managing travel requests.
+**/
 package com.dummyWebApp.html;
 
 import java.text.ParseException;
@@ -43,11 +57,7 @@ public class Requests{
     public void setReturnDate(String returnDate) {
         this.returnDate = returnDate;
     }
-    /**
-     * get field
-     *
-     * @return from
-     */
+    
     public String getOrigin() {
         return this.origin;
     }
@@ -61,11 +71,7 @@ public class Requests{
     public void setDestination(String destination) {
         this.destination = destination;
     }
-    /**
-     * get field
-     *
-     * @return passengers
-     */
+    
     public Integer getPassengers() {
         return this.passengers;
     }
@@ -73,11 +79,7 @@ public class Requests{
     public void setPassengers(Integer passengers) {
         this.passengers = passengers;
     }
-    /**
-     * get field
-     *
-     * @return travelClass
-     */
+    
     public String getTravelClass() {
         return this.travelClass;
     }
