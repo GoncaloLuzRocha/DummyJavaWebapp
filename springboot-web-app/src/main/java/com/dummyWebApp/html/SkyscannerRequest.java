@@ -1,5 +1,4 @@
 /**
-
 Certainly! The "SkyscannerRequest" Java class, belonging to the package "com.dummyWebApp.html," 
 extends the "Requests" class and is specifically designed to handle flight requests and data 
 retrieval from the Skyscanner API. The class features several methods that facilitate interaction 
@@ -13,6 +12,7 @@ flight details, and returns a list of "Flight" objects. Overall, the "Skyscanner
 streamlines the process of making flight-related requests to the Skyscanner API and extracting 
 structured flight data for further use in applications or services that require flight information.
 **/
+
 package com.dummyWebApp.html;
 
 import org.json.JSONObject;
