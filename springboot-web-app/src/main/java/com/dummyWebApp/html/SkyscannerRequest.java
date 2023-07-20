@@ -1,3 +1,18 @@
+/**
+
+Certainly! The "SkyscannerRequest" Java class, belonging to the package "com.dummyWebApp.html," 
+extends the "Requests" class and is specifically designed to handle flight requests and data 
+retrieval from the Skyscanner API. The class features several methods that facilitate interaction 
+with the API, including "oneWaySearch" for one-way flight searches and "returnFlightSearch" for 
+round-trip flight searches. Additionally, there's a utility method called "setSKyTravelClass" that 
+maps travel class names to their corresponding internal representations used by Skyscanner. 
+The class also includes a nested static class named "Flight," which represents flight details 
+extracted from the API response, such as departure and arrival dates, flight number, carriers, 
+price, currency, and more. The "extractFlights" method parses the API response, extracts relevant 
+flight details, and returns a list of "Flight" objects. Overall, the "SkyscannerRequest" class 
+streamlines the process of making flight-related requests to the Skyscanner API and extracting 
+structured flight data for further use in applications or services that require flight information.
+**/
 package com.dummyWebApp.html;
 
 import org.json.JSONObject;
