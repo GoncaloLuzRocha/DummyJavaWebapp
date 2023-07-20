@@ -1,3 +1,22 @@
+/**
+The "TripAdvisorRequest" Java class, part of the "com.dummyWebApp.html" package, 
+serves as a utility for making flight-related requests to the TripAdvisor API. 
+Extending the "Requests" class, it provides several methods to perform flight 
+searches and extract flight information from the API responses. 
+The "searchOneWayFlights" method enables one-way flight searches based on 
+origin, destination, departure date, passengers, and class of service. Similarly, 
+the "searchRoundTripFlights" method allows round-trip flight searches 
+with additional parameters like return date and travel class. The "getAirportCode" 
+method retrieves airport codes based on place names. Additionally, the class includes 
+static methods, "extractFlights" and "flightInformation," to parse the API response 
+and create a list of "Flight" objects, representing flight details such as dates, 
+flight numbers, carriers, prices, and purchase links. The "checkStatus" method 
+checks the success status of the API response. Overall, the "TripAdvisorRequest" 
+class facilitates seamless interaction with the TripAdvisor API, making it 
+convenient to retrieve and process flight data for use in web applications or 
+services requiring access to TripAdvisor's flight information.
+**/
+
 package com.dummyWebApp.html;
 
 import org.json.JSONArray;
@@ -13,10 +32,6 @@ import java.util.List;
 
 import static javax.swing.UIManager.getInt;
 
-/**
- *  trip advisor request
- *
- */
 public class TripAdvisorRequest extends Requests {
 
     public String searchOneWayFlights(String originCode, String destinationCode, String departureDate, String passengers, String classOfService) throws IOException, InterruptedException {
