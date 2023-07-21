@@ -11,6 +11,8 @@ The webapp sometimes will not show results, this is due to the api's, as they so
 
 ## How to use
 
+The application only allows at most 500 monthly searches, due to budget reasons.
+
 Make sure you have a java ide installed, i recommend IntelliJ IDEA Community Edition (https://www.jetbrains.com/idea/download/?section=windows), as the app was developed using it.
 
 Download the webapp, by pressing the code button and selecting the zip. after the download is done, extract it, and open the extracted folder with intellij.
