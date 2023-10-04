@@ -1,5 +1,10 @@
 # Flight Comparer
 
+# WARNING 
+it seems that the Skyscanner API wich was available in API HUB, has become obsolete or it changed name, or simply was removed.
+therefore this app does not function anymore, though it can be made to work, by just not using the code that was written for that api.
+
+
 # About
 This webapp is a dummy project, with the objective of challenging myself, testing and showcasing the skills learned during my time as a trainee.
 
